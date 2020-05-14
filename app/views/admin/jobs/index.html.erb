@@ -6,6 +6,7 @@
   <% @jobs.each do |job| %>
     <tr>
       <tb>
+        <%= render_job_status(job) %>
         <%= link_to(job.title, admin_jobs_path(job)) %>
       </tb>
       <tb>
