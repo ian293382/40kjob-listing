@@ -9,10 +9,10 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                  <% if !current_user %>
+                <% if !current_user %>
                     <li> <%= link_to("registration", new_user_registration_path) %> </li>
-                    <li> <%= link_to("log in", new_user_session_path) %> </li>
-                  <% esle %>
+                    <li> <%= link_to("log in", new_user_session_path) %></li>
+                <% else %>
                     <li class="dropdown">
                       <a herf="#" class="dropdown-toggle" data-toggle="dropdown">
                         Hi,<%= current_user.email %>
@@ -23,7 +23,7 @@
                       </ul>
                     </li>
                   <% end %>
-                </li>
+                
             </ul>
         </div>
         <!-- /.navbar-collapse -->
