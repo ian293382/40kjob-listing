@@ -1,9 +1,15 @@
 class Admin::JobsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
   before_action :require_is_admin
+  layout "admin" #為了做出不同的view
 
   def show
      @job = Job.find(params[:id])
+
+     if @job.is_hidden
+       flash[:waring] = "This Job already archived"
+       redirect_to root_path
+     end
    end
 
    def index
@@ -45,9 +51,21 @@ class Admin::JobsController < ApplicationController
      redirect_to admin_jobs_path
    end
 
+   def publish
+     @job = Job.find(params[:id])
+     @job.publish!
+     redirect_to :back
+   end
+
+   def hide
+     @job = Job.find(params[:id])
+     @job.hidden!
+     redirect_to :back
+   end
+
    private
 
    def job_params
-     params.require(:job).permit(:title, :description, :wage_lower_bound, :wage_upper_bound, :contact_email, :is_hidden)
+     params.require(:job).permit(:title ,:description, :wage_lower_bound, :wage_upper_bound, :contact_email, :is_hidden)
    end
  end
