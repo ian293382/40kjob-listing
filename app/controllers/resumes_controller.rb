@@ -6,10 +6,10 @@ class ResumesController < ApplicationController
   end
 
   def create
-    @job = Job.find(params[:job_id] )
+    @job = Job.find(params[:job_id])
     @resume = Resume.new(resume_params)
     @resume.job = @job
-    @resume.user == current_user
+    @resume.user = current_user
 
     if @resume.save
       flash[:notice] = "success send resume"

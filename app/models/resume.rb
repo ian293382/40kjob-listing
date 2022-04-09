@@ -1,9 +1,9 @@
-class Resume < ApplicationRecord
-  validates :content, presence: true
 
-  mount_uploader :attachment, AttachmentUploader
+class Resume < ApplicationRecord
+
   belongs_to :user
   belongs_to :job
 
-  scope :recent, -> {  order('created_at DESC')}
+  mount_uploader :attachment, AttachmentUploader
+  validates :content, presence: true
 end
