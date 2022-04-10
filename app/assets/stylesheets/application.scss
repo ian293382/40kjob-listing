@@ -121,7 +121,7 @@
 .navbar-default {
      background-color: #00BCD4;
      border-color: #ffcbef;
-     margin-bottom: 0;
+     margin-bottom: 10;
      border-radius: 0;
  }
 
@@ -169,6 +169,7 @@
      background-repeat: no-repeat;
      background-size: cover;
      margin-bottom: 50px;
+     margin-top: -25px;
 
      .box-inner {
          background-color: rgba(250, 250, 250, 0.69);
@@ -249,4 +250,10 @@
 .custab:hover{
   box-shadow: 3px 3px 0px transparent;
   transition: 0.5s;
+}
+
+//common
+.col-centered{
+  float: none;
+  margin: 0 auto;
 }
