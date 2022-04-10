@@ -20,4 +20,206 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  devise:
+    failure:
+      unauthenticated: "You need to sign in or sign up before continuing."
+    sessions:
+      signed_in: "Signed in successfully."
+      signed_out: "Signed out successfully."
+
+
+#--------- devise ---------
+  dv_login: "Login"
+  dv_signup: "Sign Up"
+  dv_email: "Email"
+  dv_pwd: "Password"
+  dv_remeber_me: "Remember Me"
+  dv_forgot_pwd: "Forgot Password?"
+  dv_check_email: "your@example.com"
+  dv_real_name: "First and last name"
+  dv_find_pwd: "Get Your Password"
+  dv_account_signin: "Already a Quick Hunt user? Login now."
+  dv_no_account_signup: "Join Quick Hunt now!"
+  dv_user: "Talent"
+  dv_admin: "Employer"
+  dv_set_pwd: "Create password"
+  dv_comfirm_pwd: "Confirm password"
+
+  #error message
+  dv_warn_email: "Please enter your email."
+  dv_warn_real_name: "Please enter your name."
+  dv_warn_pwd: "Your password and confirmation password do not match."
+  dv_warn_pwd_characters: "Enter a password between 6- 16 characters."
+
+#--------- landing page---------
+  oppotunities: "Oppotunities"
+
+  logo_title: "40K"
+  slogan: ""
+
+# footer
+  copyright: "Copyright ©2021"
+  author: "Design by Ian"
+
+# content
+
+  # features
+  sec_heading_features: ""
+  sec_text_features: ""
+
+  # section heading
+  sec_heading_1: "FAST AND EASY"
+  sec_heading_2: "OPPOTUNITIES"
+  sec_heading_3: "SERVICE"
+
+  sec_text_1: ""
+
+  sec_text_2: ""
+
+  sec_text_3: ""
+
+  # companys
+  sec_heading_cooperation: "OUR PARTNERS"
+  sec_text_cooperation: "To offer best job oppotunities, we work closely with top companies like:"
+
+  sec_heading_hired: ""
+  sec_text_hired: ""
+
+  sec_heading_act: ""
+  sec_text_act: ""
+
+  # buttons
+  btn_act: "Act Now"
+
+#--------- testimonial ---------
+  sec_heading_testimonial: ""
+  sec_text_testimonial: ""
+
+  sec_text_testimonial_1: "I never thought I stood a chance when I applied for a full-time job at Google, but suddenly there I was at the first, the second and then the final interview."
+
+  sec_text_testimonial_2: "I never thought I stood a chance when I applied for a full-time job at Google, but suddenly there I was at the first, the second and then the final interview."
+
+  sec_text_testimonial_3: "I never thought I stood a chance when I applied for a full-time job at Google, but suddenly there I was at the first, the second and then the final interview."
+
+  sec_text_testimonial_4: "I never thought I stood a chance when I applied for a full-time job at Google, but suddenly there I was at the first, the second and then the final interview."
+
+#--------- navbar---------
+  sign_up: "Sign Up"
+  login: "Login"
+  greeting: "Hi, "
+  language_switch: "Language Switch"
+
+  # navbar dropdown menu
+  starred: "Starred Jobs"
+  history: "Application History"
+  admin_access: "Admin Panel"
+  admin_panel: "Jobs"
+  company_panel: "Business Partners"
+  log_out: "Log Out"
+
+#--------- search ---------
+  str_search: "We have found "
+  str_result: " jobs for you!"
+
+  no_result: "There are no results that match your search."
+  view_all: "Best Jobs Here"
+  resturn: "Return"
+
+#--------- fields of work ---------
+  fields_of_work: "Fiels of Work"
+
+  th_all: "View All"
+  th_category_1: "Engineering & Technology"
+  th_category_2: "Sales, Service & Support"
+  th_category_3: "Marketing & Communications"
+  th_category_4: "Design"
+  th_category_5: "Business Strategy"
+  th_category_6: "Finance"
+  th_category_7: "Legal"
+  th_category_8: "People"
+  th_category_9: "Facilities"
+
+  about_category_1: "Develop the products and tools of the future for billions of users."
+  about_category_2: "Equip businesses with the right tools to help them grow."
+  about_category_3: "Connect users to the product magic."
+  about_category_4: "Create beautiful and intuitive experiences."
+  about_category_5: "Deliver the analysis and insights we use to innovate."
+  about_category_6: "Design and manage solutions to support our global business."
+  about_category_7: "Shape the future of internet policy and law."
+  about_category_8: "Find, grow, and support the people who make Google great."
+  about_category_9: "Reimagine what it means to be at work."
+
+  btn_see_jobs: "SEE JOBS"
+
+#--------- jobs index ---------
+  # table head
+  th_company: "Company"
+  th_category: "Category"
+  th_position: "Job Title"
+  th_count: "Count"
+  th_salary_min: "Salary Min."
+  th_salary_max: "Salary Max."
+  th_salary_range: "Salary Range"
+  th_manage: "Manage"
+  th_published: "Posted Date/Time"
+  th_published: "Submitted Date/Time"
+
+  # table head
+  th_company_image: "Company Logo"
+  th_company_title: "Company Title"
+  th_company_location: "Company Location"
+
+  # buttons
+  btn_add: "Add New Job"
+  btn_add_company: "Add New Business Partner"
+  btn_sort: "Sort"
+  btn_hide: "Hide"
+  btn_publish: "Publish"
+  btn_edit: "Edit"
+  btn_delete: "Delete"
+
+  # sort menu
+  btn_sort_latest: "Lastest"
+  btn_job_apply: "Quick Apply"
+
+#--------- form---------
+  # form headings
+  hd_new: "Add New Job"
+  hd_edit: "Edit Job"
+
+  # form headings
+  hd_new_company: "Add New Business Parner"
+  hd_edit_company: "Edit Business Partner"
+
+  # login & signup form
+  f_account: "Email"
+  f_password: "Password"
+  f_confirm_password: "Password Confirmation"
+  f_remeber: "Remeber Me"
+
+  # edit/new form
+  f_company: "Company"
+  f_category: "Job Category"
+  f_title: "Job Position"
+  f_description: "Job Description"
+  f_salary_min: "Salary Min."
+  f_salary_max: "Salary Max."
+  f_city: "City"
+  f_email: "Contact Email"
+  f_job_status: "Hidden"
+  f_company_image: "Company Logo"
+  f_company_title: "Company Title"
+  f_company_location: "Address"
+  f_submit: "Submit"
+  f_update: "Update"
+  # resume form
+  f_content: "Content"
+  f_attachment: "Attachment"
+  f_send: "Send"
+
+  # show
+  btn_apply: "Apply Now"
+  btn_resume: "Send Resume"
+  # resume
+  btn_download: "Download Resume"
+  attachment_status: "No attachment"

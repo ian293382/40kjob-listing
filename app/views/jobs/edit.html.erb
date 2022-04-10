@@ -6,12 +6,12 @@
     <div class="panel-body">
     <%= simple_form_for @job do |f| %>
 
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :wage_lower_bound %>
-    <%= f.input :wage_upper_bound %>
-    <%= f.input :contact_email %>
-    <%= f.input :is_hidden %>
+    <%= t('f.input :title') %>
+    <%= t('f.input :description')  %>
+    <%= t('f.input :wage_lower_bound')%>
+    <%= t('f.input :wage_upper_bound') %>
+    <%= t('f.input :contact_email') %>
+    <%= t('f.input :is_hidden') %>
 
       <%= f.submit "Submit", class:"btn btn-primary" %>
     <% end %>

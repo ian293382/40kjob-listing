@@ -17,17 +17,25 @@
                       <a herf="#" class="dropdown-toggle" data-toggle="dropdown">
                         Hi,<%= current_user.email %>
                         <b class="caret"></b>
-                      </a>
-                      <ul class="dropdown-menu">
+
+                      <!-- 下拉式選單 -->
+                      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= t('language_switch') %><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+
+                          <!-- 語系選項 -->
+                          <li><%= link_to "繁中版", :controller => controller_name, :action => action_name, :locale => "zh-TW" %></li>
+                          <li><%= link_to "English", :controller => controller_name, :action => action_name, :locale => "en" %></li>
+
+                        </ul>
                         <% if current_user.admin? %>
                         <li> <%= link_to("Admin Panel", admin_jobs_path) %> </li>
                         <% end %>
                         <li> <%= link_to("log out", destroy_user_session_path ,method: :delete) %> </li>
                       </ul>
-                    </li>
+                
                   <% end %>
 
-            </ul>
+
         </div>
         <!-- /.navbar-collapse -->
     </div>
