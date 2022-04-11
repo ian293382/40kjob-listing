@@ -37,6 +37,10 @@ gem 'carrierwave'
 # gems for google map
 
 gem 'geocoder'
+# gems for google map
+
+gem 'gmaps4rails'
+gem 'underscore-rails'
 
 
 group :development, :test do

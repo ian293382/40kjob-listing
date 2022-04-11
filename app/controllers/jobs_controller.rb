@@ -16,6 +16,13 @@ class JobsController < ApplicationController
   def show
     @job = Job.find(params[:id])
 
+    # 使用經緯度兩個欄位的數值，建立 Google Map
+
+    @hash = Gmaps4rails.build_markers(@job) do |job, marker|
+      marker.lat job.latitude
+      marker.lng job.longitude
+    end
+
     if @job.is_hidden
       flash[:warning] = "This Job already archived"
       redirect_to root_path

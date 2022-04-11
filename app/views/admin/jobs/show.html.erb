@@ -4,3 +4,24 @@
   <%= simple_format(@job.description) %>
 
 </p>
+<!-- 測試用，顯示工作地點資訊 -->
+<p>緯度：<%= @job.latitude %></p>
+<p>經度：<%= @job.longitude %></p>
+<p>地址：<%= @job.address %></p>
+
+<!-- 顯示 Google Map -->
+<div id="map"></div>
+
+<!-- Google Map 相關代碼 -->
+<!-- 請先取得 Google Map API Key（API 金鑰），並用取得的 API 金鑰取代「你的API金鑰」-->
+<script src="//maps.google.com/maps/api/js?key=「AIzaSyBsPJO8Wyfz5EOsb_wH28RklIeLQ2aeGMQ」"></script>
+<script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
+
+<script type="text/javascript">
+handler = Gmaps.build('Google');
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+  markers = handler.addMarkers(<%=raw @hash.to_json %>);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+});
+</script>
