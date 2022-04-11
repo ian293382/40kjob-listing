@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 20220411130916) do
     t.integer  "wage_lower_bound"
     t.string   "contact_email"
     t.boolean  "is_hidden",        default: true
-    t.string   "addrress"
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
