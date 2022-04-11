@@ -2,12 +2,13 @@
 
 <%= simple_form_for [:admin,@job] do |f| %>
 
-<%= f.input :title %>
-<%= f.input :description %>
-<%= f.input :wage_lower_bound %>
-<%= f.input :wage_upper_bound %>
-<%= f.input :contact_email %>
-<%= f.input :is_hidden %>
+<%= f.input :title, :label => t('f_title')  %>
+<%= f.input :description, :label => t('description')  %>
+<%= f.input :wage_lower_bound, :label => t('wage_lower_bound')  %>
+<%= f.input :wage_upper_bound, :label => t('wage_upper_bound')  %>
+<%= f.input :contact_email, :label => t('f_contact_email') %>
+<%= f.input :is_hidden, :label => t('f_is_hidden') %>
+<%= f.input :address, :label => t('f_address') %>
 
   <%= f.submit "Submit" %>
 <% end %>
