@@ -32,4 +32,10 @@ class Job < ApplicationRecord
    scope :recent, -> { order('created_at DESC')}
 
    has_many :resumes
+
+   # converting address
+
+   geocoded_by :address
+   after_validation :geocode
+
 end

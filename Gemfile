@@ -34,7 +34,9 @@ gem 'carrierwave'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# gems for google map
 
+gem 'geocoder'
 
 
 group :development, :test do
