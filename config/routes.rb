@@ -1,8 +1,7 @@
-
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :jobs
+
 root 'welcome#index'
 
   namespace :admin do
@@ -17,8 +16,17 @@ root 'welcome#index'
   end
 
   resources :jobs do
-    resources :resumes
-  end
+     resources :resumes
 
+     put :favorite, on: :member
+     member do
+      post :add
+      post :remove
+    end
+
+   end
+
+  resources :jobs
+  resources :favorites
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

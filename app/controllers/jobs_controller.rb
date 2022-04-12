@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy, :favorite]
 
   def index
     @jobs = case params[:order]
@@ -64,8 +64,29 @@ class JobsController < ApplicationController
     redirect_to jobs_path ,alert: "job delete"
   end
 
+
+  def add
+   @job = Job.find(params[:id])
+
+   if !current_user.is_member_of?(@job)
+     current_user.add_favorite!(@job)
+   end
+
+   redirect_to :back
+  end
+
+  def remove
+   @job = Job.find(params[:id])
+
+   if current_user.is_member_of?(@job)
+     current_user.remove_favorite!(@job)
+   end
+
+   redirect_to :back
+  end
+
   private
     def job_params
-      params.require(:job).permit(:title ,:description, :wage_lower_bound, :wage_upper_bound, :contact_email, :is_hidden)
+      params.require(:job).permit(:title ,:description, :wage_lower_bound, :wage_upper_bound, :contact_email, :is_hidden, :favorite)
     end
 end
