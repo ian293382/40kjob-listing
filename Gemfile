@@ -41,6 +41,8 @@ gem 'geocoder'
 
 gem 'gmaps4rails'
 gem 'underscore-rails'
+#will_page
+gem 'will_paginate'
 
 
 group :development, :test do

@@ -2,9 +2,7 @@
   <div class="panel panel-default">
     <div class="panel-heading"><h3>
       求職列表
-      <div class="pull-right">
-        <%= link_to("Add a job", new_job_path, class:"btn btn-default") %>
-      </div>
+
 
       <div class="dropdown clearfix pull-right">
         <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -63,5 +61,9 @@
 
         </table>
       </div>
+
+      <div class="text-center">
+          <%= will_paginate @jobs %>
+       </div>
     </div>
   </div>
