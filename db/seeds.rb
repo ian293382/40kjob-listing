@@ -10,10 +10,10 @@
 
     Category.create!(name: "Product")
 
-    Category.create(name: "Design")
+    Category.create!(name: "Design")
 
-    Category.create(name: "Operation")
+    Category.create!(name: "Operation")
 
-    Category.create(name: "Marketing")
+    Category.create!(name: "Marketing")
 
-    Category.create(name: "Sales")
+    Category.create!(name: "Sales")

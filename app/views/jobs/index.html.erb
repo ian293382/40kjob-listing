@@ -44,23 +44,12 @@
              </li>
              <% end %>
         <li>
-          <%= link_to("所有類型", jobs_path(:category => "All") ) %>
+          <%= link_to("所有類型", jobs_path) %>
         </li>
       </ul>
     </div>
 
-    <ul class="nav navbar-nav navbar-left">
-  <li class="dropdown">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">分类<span class="caret"></span></a>
-      <ul class="dropdown-menu" role="menu">
-        <% Category.all.each do |category| %>
-        <li>
-          <%= link_to category.name, jobs_path(category: category.name), class: "link" %>
-        </li>
-        <% end %>
-      </ul>
-    </li>
-</ul>
+
 
       <div class="panel-body">
         <table class="table table-boldered">
