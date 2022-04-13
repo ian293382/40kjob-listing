@@ -12,14 +12,17 @@ class Admin::JobsController < ApplicationController
 
   def edit
     @job = Job.find(params[:id])
+    @category = Category.all.map{ |c| [c.name, c.id] }
   end
 
   def new
     @job = Job.new
+    @categories = Category.all.map { |c| [c.name, c.id] }
   end
 
   def create
     @job = Job.new(job_params)
+    @job.category_id = params[:category_id]
      if @job.save
        redirect_to admin_jobs_path
      else
@@ -29,6 +32,7 @@ class Admin::JobsController < ApplicationController
 
    def update
      @job = Job.find(params[:id])
+     @job.category_id = params[:category_id]
       if @job.update(job_params)
         redirect_to admin_jobs_path
       else
@@ -59,6 +63,6 @@ class Admin::JobsController < ApplicationController
 
 
       def job_params
-        params.require(:job).permit(:title, :description, :wage_lower_bound, :wage_upper_bound, :contact_email, :is_hidden, :address, :latitude, :longitude)
+        params.require(:job).permit(:title, :description, :wage_lower_bound, :wage_upper_bound, :contact_email, :is_hidden, :address, :latitude, :longitude, :category_id)
       end
 end

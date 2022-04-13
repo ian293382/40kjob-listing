@@ -2,6 +2,9 @@ class JobsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy, :favorite]
 
   def index
+
+    if params[:category].blank?
+
     @jobs = case params[:order]
 
 
@@ -11,6 +14,10 @@ class JobsController < ApplicationController
       Job.published.order('wage_upper_bound DESC').paginate(:page => params[:page], :per_page => 6)
     else
       Job.published.recent.paginate(:page => params[:page], :per_page => 6)
+    end
+      else
+         @category_id = Category.find_by(name: params[:category]).id
+         @jobs = Job.where(:category_id => @category_id).paginate(:page => params[:page], :per_page => 6)
     end
   end
 
@@ -87,6 +94,6 @@ class JobsController < ApplicationController
 
   private
     def job_params
-      params.require(:job).permit(:title ,:description, :wage_lower_bound, :wage_upper_bound, :contact_email, :is_hidden, :favorite)
+      params.require(:job).permit(:title ,:description, :wage_lower_bound, :wage_upper_bound, :contact_email, :is_hidden, :favorite, :category_id)
     end
 end

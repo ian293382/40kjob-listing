@@ -24,9 +24,44 @@
       </div>
 
       </h3>
-
-
     </div>
+
+    <!--=== 職業下拉选单 ===-->
+    <div class="dropdown btn-group clearfix">
+      <% if params[:category].present? %>
+      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <%= params[:category] %> <span class="caret"></span>
+      </button>
+      <% else %>
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        職業類型 <span class="caret"></span>
+      </button>
+      <% end %>
+      <ul class="dropdown-menu" role="menu">
+             <% Category.all.each do |category| %>
+             <li>
+               <%= link_to category.name, jobs_path(category: category.name), class: "link" %>
+             </li>
+             <% end %>
+        <li>
+          <%= link_to("所有類型", jobs_path(:category => "All") ) %>
+        </li>
+      </ul>
+    </div>
+
+    <ul class="nav navbar-nav navbar-left">
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">分类<span class="caret"></span></a>
+      <ul class="dropdown-menu" role="menu">
+        <% Category.all.each do |category| %>
+        <li>
+          <%= link_to category.name, jobs_path(category: category.name), class: "link" %>
+        </li>
+        <% end %>
+      </ul>
+    </li>
+</ul>
+
       <div class="panel-body">
         <table class="table table-boldered">
 
@@ -35,7 +70,10 @@
               <td>
                 職缺
               </td>
-              <td>職缺下限</td>
+              <td>
+                類型
+              </td>
+              <td>薪資下限</td>
               <td>薪資上限</td>
               <td>刊登時間</td>
           </tr>
@@ -46,6 +84,9 @@
              <td>
                  <%= render_job_status(job) %>
                  <%= link_to(job.title, job_path(job)) %>
+            </td>
+            <td>
+              <%= @job.categroy.name %>
             </td>
             <td>
                 <%=  job.wage_lower_bound %>

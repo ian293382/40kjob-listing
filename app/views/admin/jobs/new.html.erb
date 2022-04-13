@@ -1,14 +1,21 @@
 <h1> Add a job </h1>
 
 <%= simple_form_for [:admin,@job] do |f| %>
-
+    <div class="group">
+        <%= select_tag(:category_id, options_for_select(@categories), :prompt => "Category") %>
+    </div>
 <%= f.input :title, :label => t('f_title')  %>
 <%= f.input :description, :label => t('f_description')  %>
 <%= f.input :wage_lower_bound, :label => t('f_age_lower_bound')  %>
 <%= f.input :wage_upper_bound, :label => t('f_wage_upper_bound')  %>
+<%= f.input :location, :label => "Location" %>
+
+<%= f.input :company, :label => "Company" %>
 <%= f.input :contact_email, :label => t('f_contact_email') %>
 <%= f.input :is_hidden, :label => t('f_is_hidden') %>
 <%= f.input :address, :label => t('f_address') %>
+
+
 
   <%= f.submit "Submit" %>
 <% end %>
