@@ -98,7 +98,10 @@
                  <%= link_to(job.title, job_path(job)) %>
             </td>
             <td>
-              <%= @job.categroy.name %>
+              <%= job.category.name %>
+            </td>
+            <<td>
+                <%= job.location.name%>
             </td>
             <td>
               <%=  job.wage_lower_bound %>K
@@ -110,7 +113,6 @@
             </td>
           </tr>
           <% end %>
-
         </table>
       </div>
         <div class="col-md-10 col-md-offset-1 job-bottom">

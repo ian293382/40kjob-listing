@@ -17,7 +17,7 @@ class Job < ApplicationRecord
   validates :wage_lower_bound, presence: true
   validates :wage_upper_bound, presence: true
   validates :wage_lower_bound, numericality: { greater_than: 0}
-  validates :company, presence: {message: "請輸入公司名稱"}
+  # validates :company, presence: {message: "請輸入公司名稱"}
   validates :location, presence: {message: "請選擇工作地點"}
 
   def publish!

@@ -7,16 +7,16 @@
       <%= simple_format(@job.description) %>
     </p>
     <p>
-      <%= @job.categroy.name %>
+      <%= @job.category.name %>
     </p>
     <p>
       <%= @job.location.name %>
     </p>
-    <p> <%=  job.wage_lower_bound %>K
-       ~ <%= job.wage_upper_bound %>K
+    <p> <%=  @job.wage_lower_bound %>K
+       ~ <%= @job.wage_upper_bound %>K
     </p>
     <p>
-    <%= f.input :company, :label => "Company" %>
+      <%# <%= f.input  :company, :label => "Company" %> %>
     </p>
     <div class="text-center">
        <% if current_user && current_user.is_member_of?(@job) %>

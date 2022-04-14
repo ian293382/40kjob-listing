@@ -5,6 +5,6 @@ class AddAddressToJob < ActiveRecord::Migration[5.0]
 
     #require column map
     add_column :jobs, :latitude, :float
-      add_column :jobs, :longitude, :float
+    add_column :jobs, :longitude, :float
   end
 end
