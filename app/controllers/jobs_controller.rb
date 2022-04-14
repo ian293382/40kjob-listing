@@ -1,8 +1,9 @@
 class JobsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy, :favorite]
+   before_action :validate_search_key, only: [:search]
 
   def index
-    
+
     #目前使用單一條件篩選
       @jobs = case params[:order]
 
@@ -92,8 +93,32 @@ class JobsController < ApplicationController
    redirect_to :back
   end
 
+  def search
+    if @query_string.present?
+      #顯示jobs公開職位開始搜尋  若加上location(固定資料搜尋時 則替換Job.joins(:location))
+      search_result = Job.published.ransack(@search_criteria).result(:distinct => true)
+      @jobs = search_result.recent.paginate(:page => params[:page], :per_page => 5 )
+    end
+  end
+
+
+
   private
     def job_params
       params.require(:job).permit(:title ,:description, :wage_lower_bound, :wage_upper_bound, :contact_email, :is_hidden, :favorite, :category_id, :location_id)
     end
+
+
+    protected
+
+     def validate_search_key
+       # 去除特殊字符 # 正則運算子
+       @query_string = params[:keyword].gsub(/\\|\'|\/|\?/, "") if params[:keyword].present?
+       @search_criteria = search_criteria(@query_string)
+     end
+
+     def search_criteria(query_string)
+     # 篩選多個欄位#
+     { :title_or_category_or_company_or_location_cont => query_string }
+   end
 end

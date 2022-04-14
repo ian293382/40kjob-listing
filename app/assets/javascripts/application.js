@@ -36,3 +36,7 @@ function goTop(min_height) {
         }
     });
 }
+
+$(function() {
+    goTop();
+});

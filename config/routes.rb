@@ -18,10 +18,15 @@ root 'welcome#index'
   resources :jobs do
      resources :resumes
 
+
      put :favorite, on: :member
      member do
       post :add
       post :remove
+    end
+
+    collection do
+         get :search
     end
 
    end

@@ -1,0 +1,68 @@
+<div class="col-md-10 col-md-offset-1">
+
+    <!--=== 搜索结果，没有符合条件的数据 ===-->
+    <% if @jobs.blank?%>
+      <div class="col-md-10 col-md-offset-1">
+        <div class="search-error">
+          <h2>没有符合搜尋！</h2><br />
+          <p><%= link_to("立即查看工作", jobs_path, class: "btn btn-lg btn-success") %></p>
+        </div>
+      </div>
+    <% else %>
+    <!--=== 搜索结果，有符合条件的数据 ===-->
+    <div class="pull-right">
+        <%= link_to("Check All Jobs", jobs_path) %> | <%= link_to("Back", root_path) %>
+      </div>
+    <div class="search-results">
+      <div class= "test-center">
+            <!-- string -->
+        <h3> <%= t('str_seach')%><%= @jobs.count %><%= t('str-result') %></h3>
+      </div>
+
+        <hr>
+        <table class="table table-boldered">
+          <thead>
+            <tr>
+              <td>Title</td>
+              <td>Category</td>
+              <td>Location</td>
+              <td>Lower Salary</td>
+              <td>Upper Salary</td>
+              <td>Publish Time</td>
+            </tr>
+          </thead>
+          <tbody>
+            <% @job.each do |job| %>
+              <tr>
+                <td>
+                  <%= link_to(job.title, job_path(job)) %>
+                </td>
+                <td>
+                  <%= @job.category.name %>
+                </td>
+                <td>
+                  <%= @job.location.name %>
+                </td>
+                <td>
+                  <%= job.wage_lower_bound %>
+                </td>
+                <td>
+                  <%= job.wage_upper_bound %>
+                </td>
+                <td>
+                  <%= job.created_at %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+  </div>
+
+  <!--=== 換頁區塊 ===-->
+  <div class="col-md-10 col-md-offset-1 job-bottom">
+    <div class="text-center">
+      <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
+    </div>
+  </div>
+<% end %>

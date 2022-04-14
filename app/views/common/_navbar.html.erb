@@ -7,8 +7,7 @@
 
     <!-- Collect the nav links, forms & other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li>
+        <ul class="nav navbar-nav navbar-right">
                 <% if !current_user %>
                 <li><a href="#" data-toggle="modal" data-target="#signup-modal">Register</a></li>
                 <li><a href="#" data-toggle="modal" data-target="#login-modal">Log in</a></li>
@@ -27,8 +26,19 @@
                       </ul>
                     </li>
                   <% end %>
-
-            </ul>
+          </ul>
+                <div class="col-md-3 col-navbar">
+                    <%= form_tag search_jobs_path , :method => :get, :class => "jobs-search-form" do %>
+                      <div class="input-group">
+                          <input type="text" class="form-control search-bar-input" name="q" value="<%= params[:q] %>">
+                        <span class="input-group-btn">
+                          <button type="submit" class="btn btn-default search-bar-submit">
+                            <i class="fa fa-search"></i>
+                          </button>
+                        </span>
+                      </div>
+                     <% end %>
+                   </div>
         </div>
         <!-- /.navbar-collapse -->
     </div>
@@ -51,6 +61,10 @@
     </div>
   </div>
 </div>
+
+<!--=== 搜索系統 ===-->
+
+
 
 <div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
   <div class="modal-dialog">
