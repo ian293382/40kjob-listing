@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <!-- Brand & toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <a class="navbar-brand" href="/"><i class="fa fa-diamond" aria-hidden="true"> Job Listing</i> </a>
+      <a class="navbar-brand" href="/"><i class="fa-light fa-banana" aria-hidden="true"> 40Kup_for_job </i> </a>
     </div>
 
     <!-- Collect the nav links, forms & other content for toggling -->
@@ -27,7 +27,7 @@
                     </li>
                   <% end %>
           </ul>
-                <div class="col-md-3 col-navbar">
+                <div class="col-md-3 col-lg-4 col-xs-4 col-navbar">
                     <%= form_tag search_jobs_path , :method => :get, :class => "jobs-search-form" do %>
                       <div class="input-group">
                           <input type="text" class="form-control search-bar-input" name="q" value="<%= params[:q] %>">
