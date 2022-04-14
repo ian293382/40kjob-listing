@@ -18,3 +18,21 @@
 //= require underscore
 //= require gmaps/google
 //= require_tree .
+
+function goTop(min_height) {
+    $(".goTop").click(
+        function() {
+            $('html,body').animate({
+                scrollTop: 0
+            }, 700);
+        });
+    min_height=min_height?min_height:2500;
+    $(window).scroll(function() {
+        var s = $(window).scrollTop();
+        if (s > min_height) {
+            $(".goTop").fadeIn(100);
+        } else {
+            $(".goTop").fadeOut(200);
+        }
+    });
+}

@@ -43,7 +43,8 @@ gem 'gmaps4rails'
 gem 'underscore-rails'
 #will_page
 gem 'will_paginate'
-
+#search
+gem 'ransack'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
