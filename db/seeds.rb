@@ -17,3 +17,19 @@
     Category.create!(name: "Marketing")
 
     Category.create!(name: "Sales")
+
+    Location.create!(name: "Taipei")
+
+    Location.create!(name: "New Taipei")
+
+    Location.create!(name: "Taoyuan")
+
+    Location.create!(name: "Hsinchu")
+
+    Location.create!(name: "Taichung")
+
+    Location.create!(name: "Tainan")
+
+    Location.create!(name: "Kaohsiung")
+
+    Location.create!(name: "Ａbroad")

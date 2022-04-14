@@ -3,6 +3,7 @@
 <%= simple_form_for [:admin,@job] do |f| %>
     <div class="group">
         <%= select_tag(:category_id, options_for_select(@categories), :prompt => "Category") %>
+        <%= select_tag(:location_id, options_for_select(@locattions), :prompt => "Location") %>
     </div>
 <%= f.input :title, :label => t('f_title')  %>
 <%= f.input :description, :label => t('f_description')  %>

@@ -26,6 +26,29 @@
       </h3>
     </div>
 
+    <!--=== 工作下拉选单 ===-->
+    <div class="dropdown btn-group clearfix">
+      <% if params[:location].present? %>
+      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <%= params[:location] %> <span class="caret"></span>
+      </button>
+      <% else %>
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        地點 <span class="caret"></span>
+      </button>
+      <% end %>
+      <ul class="dropdown-menu" role="menu">
+             <% Location.all.each do |location| %>
+             <li>
+               <%= link_to location.name, jobs_path(location: location.name), class: "link" %>
+             </li>
+             <% end %>
+        <li>
+          <%= link_to("所有類型", jobs_path) %>
+        </li>
+      </ul>
+    </div>
+
     <!--=== 職業下拉选单 ===-->
     <div class="dropdown btn-group clearfix">
       <% if params[:category].present? %>

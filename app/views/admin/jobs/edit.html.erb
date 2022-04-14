@@ -1,7 +1,10 @@
 <h1> Edit a job </h1>
 
 <%= simple_form_for [:admin, @job ] do |f| %>
-
+<div class="group">
+      <%= f.select :category_id, @categories %> 直接進入頁面並且預設為category設定並非字體
+      <%= f.select :location_id, @locations %> 直接進入頁面並且預設為Location設定並非字體
+</div>
 <%= f.input :title, :label => t('f_title')  %>
 <%= f.input :description, :label => t('f_description')  %>
 <%= f.input :wage_lower_bound, :label => t('f_age_lower_bound')  %>

@@ -6,6 +6,15 @@
     <p>
       <%= simple_format(@job.description) %>
     </p>
+    <p>
+      <%= @job.categroy.name %>
+    </p>
+    <p>
+      <%= @job.location.name %>
+    </p>
+    <p>
+    <%= f.input :company, :label => "Company" %>
+    </p>
     <div class="text-center">
        <% if current_user && current_user.is_member_of?(@job) %>
          <%= link_to remove_job_path(@job), method: :post, class: "btn btn-lg btn-primary" do %>

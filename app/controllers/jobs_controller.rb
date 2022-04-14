@@ -2,23 +2,23 @@ class JobsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy, :favorite]
 
   def index
+    
+    #目前使用單一條件篩選
+      @jobs = case params[:order]
 
-    if params[:category].blank?
-
-    @jobs = case params[:order]
-
-
-    when 'by_lowe_bound'  #條件一
-      Job.published.order('wage_lower_bound DESC').paginate(:page => params[:page], :per_page => 6)
-    when 'by_upper_bound' #條件二
-      Job.published.order('wage_upper_bound DESC').paginate(:page => params[:page], :per_page => 6)
-    else
-      Job.published.recent.paginate(:page => params[:page], :per_page => 6)
-    end
+      when 'by_lowe_bound'  #條件一
+        Job.published.order('wage_lower_bound DESC').paginate(:page => params[:page], :per_page => 6)
+      when 'by_upper_bound' #條件二
+        Job.published.order('wage_upper_bound DESC').paginate(:page => params[:page], :per_page => 6)
+      when  params[:category].blank?
+              @category_id = Category.find_by(name: params[:category]).id
+              @jobs = Job.where(:category_id => @category_id).paginate(:page => params[:page], :per_page => 6)
+      when  params[:category].blank?
+              @location_id = Locatin.find_by(name: params[:location]).id
+              @jobs = Job.where(:location_id => @location_id).paginate(:page => params[:page], :per_page => 6)
       else
-         @category_id = Category.find_by(name: params[:category]).id
-         @jobs = Job.where(:category_id => @category_id).paginate(:page => params[:page], :per_page => 6)
-    end
+              Job.published.recent.paginate(:page => params[:page], :per_page => 6)
+      end
   end
 
   def show
@@ -94,6 +94,6 @@ class JobsController < ApplicationController
 
   private
     def job_params
-      params.require(:job).permit(:title ,:description, :wage_lower_bound, :wage_upper_bound, :contact_email, :is_hidden, :favorite, :category_id)
+      params.require(:job).permit(:title ,:description, :wage_lower_bound, :wage_upper_bound, :contact_email, :is_hidden, :favorite, :category_id, :location_id)
     end
 end
