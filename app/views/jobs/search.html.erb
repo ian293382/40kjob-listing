@@ -26,8 +26,7 @@
               <td>Title</td>
               <td>Category</td>
               <td>Location</td>
-              <td>Lower Salary</td>
-              <td>Upper Salary</td>
+              <td>Lower Salary ~ Upper Salary </td>
               <td>Publish Time</td>
             </tr>
           </thead>
@@ -43,12 +42,9 @@
                 <td>
                   <%= @job.location.name %>
                 </td>
-                <td>
-                  <%= job.wage_lower_bound %>
-                </td>
-                <td>
-                  <%= job.wage_upper_bound %>
-                </td>
+                <td> <%=  job.wage_lower_bound %>K
+                   ~  <%= job.wage_upper_bound %>K
+                 </td>
                 <td>
                   <%= job.created_at %>
                 </td>

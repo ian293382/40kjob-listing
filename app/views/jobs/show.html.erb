@@ -12,6 +12,9 @@
     <p>
       <%= @job.location.name %>
     </p>
+    <p> <%=  job.wage_lower_bound %>K
+       ~ <%= job.wage_upper_bound %>K
+    </p>
     <p>
     <%= f.input :company, :label => "Company" %>
     </p>
